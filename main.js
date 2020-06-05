@@ -1,3 +1,18 @@
+//USER Experience
+// 1. Add a click event listener to the `replaceAllButton (1 point)
+// 2. On click but outside of a loop, assign the values of the two input textboxes (2 points)
+// 3. Write a loop which loops over the `rowElements` array (2 points)
+// 4. This criterion is linked to a Learning OutcomeInside this loop, 
+    // use the `getCellElements()` function (already provided in the starter code) 
+    // and assign the resulting array of cell elements to a variable. (1 point)
+// 5. Write a nested loop which loops over the array of cell elements (3 points)
+// 6. For each cell element, check if a cell contains the user-provided search string.
+    // Use the string method `includes()` (2 points)
+// 7. If a cell does contain the user-provided search string, 
+    // use innerHTML and the string method `replace()` 
+    // to replace the search string with the replacement. (3 points)
+// 8. In all your loops, avoid using low-meaning index variables like "i" and "j". (1 point)
+
 // You should NOT change the HTML or CSS in this project (at least until you reach
 // the bonus objectives). Focus on the JavaScript.
 
@@ -21,6 +36,21 @@ function getCellElements (currentRowElement) {
 
 
 // YOUR CODE GOES HERE
+
+// Event Listener
+
+replaceAllButton.addEventListener("click", function() {
+    console.log('replaceAllButton clicked')
+    let findInputString = findInput.value
+    let replaceInputString = replaceInput.value
+    for (let index = 0; index < rowElements.length; index += 1) {
+       let currentRowElement = rowElements[index]
+        if (currentRowElement.innerHTML.includes(findInputString)) {
+            let newCurrentElement = currentRowElement.innerHTML.replace(findInputString, replaceInputString)
+            currentRowElement.innerHTML = newCurrentElement
+        }
+    }
+})
 
 
 // One last thing: dedicate very careful attention to using variables and
