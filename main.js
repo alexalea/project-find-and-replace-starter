@@ -44,10 +44,11 @@ replaceAllButton.addEventListener("click", function() {
     let findInputString = findInput.value
     let replaceInputString = replaceInput.value
     for (let index = 0; index < rowElements.length; index += 1) {
-       let currentRowElement = rowElements[index]
-        if (currentRowElement.innerHTML.includes(findInputString)) {
-            let newCurrentElement = currentRowElement.innerHTML.replace(findInputString, replaceInputString)
-            currentRowElement.innerHTML = newCurrentElement
+       let currentCellElement = getCellElements(rowElements[index])
+       for (let innerIndex = 0; innerIndex < currentCellElement.length; innerIndex += 1)
+        if (currentCellElement[innerIndex].innerHTML.includes(findInputString)) {
+            let newCurrentElement = currentCellElement[innerIndex].innerHTML.replace(findInputString, replaceInputString)
+            currentCellElement[innerIndex].innerHTML = newCurrentElement
         }
     }
 })
